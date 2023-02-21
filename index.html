@@ -2,13 +2,26 @@
 <html>
   <head>
     <title>Conner's Website</title>
+    <style>
+      body {
+        background-color: white;
+      }
+      .btn {
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <header>
       <h1>Welcome to Conner's Website</h1>
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -16,10 +29,16 @@
     </header>
     <main>
       <h2>Home</h2>
+      <button class="btn" onclick="changeBgColor()">Click me to change the background color!</button>
       <p>Welcome to my website!</p>
     </main>
     <footer>
       <p>&copy; 2023 Conner's Website. All rights reserved.</p>
     </footer>
+    <script>
+      function changeBgColor() {
+        document.body.style.backgroundColor = "pink";
+      }
+    </script>
   </body>
 </html>
