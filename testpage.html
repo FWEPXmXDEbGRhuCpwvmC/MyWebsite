@@ -65,7 +65,68 @@
     </div>
 
     <script>
-        // JavaScript code for the chatbot (as previously provided)
+        // JavaScript code for the chatbot
+
+        const responses = {
+            "hello": ["Hello there!", "Hi!", "Greetings!", "Hey!", "Hi there!", "Howdy!"],
+            "hi": ["Hello!", "Hi!", "Hey there!"],
+            "hey": ["Hello!", "Hey!", "Hi there!"],
+            "how are you": ["I'm just a computer program, so I don't have feelings, but I'm here to help!", "I'm doing well, thanks for asking!", "I'm as good as the code that powers me."],
+            "tell me a joke": ["Sure, here's a joke: Why don't scientists trust atoms? Because they make up everything!", "Knock, knock. Who's there? Boo. Boo who? Don't cry, it's just a joke!"],
+            "how's the weather": ["I'm not a weather bot, but you can check a weather website or app for the latest updates.", "I'm afraid I can't help with that, but you can easily find the weather online."],
+            "tell me a fact": ["Did you know that honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible.", "Here's a fact: The Great Wall of China is not visible from space with the naked eye."],
+            "who won the last World Series": ["I'm not sure about the latest World Series winner. You can look it up online for the most up-to-date information.", "I don't have real-time sports data, but a quick online search should give you the answer."],
+            "what's your favorite color": ["I don't have personal preferences, but I've heard that blue is a popular color.", "I don't experience colors, but many people like blue and green."],
+            "tell me a riddle": ["Sure, here's a riddle: I'm tall when I'm young and short when I'm old. What am I?", "Here's a riddle: I have keys but open no locks. What am I?"],
+            "favorite food": ["I don't eat, so I don't have a favorite food. But people enjoy a wide variety of cuisines!", "I'm not capable of eating, but I've heard that pizza and ice cream are quite popular."],
+            "favorite book": ["I don't read, but some popular books are 'To Kill a Mockingbird' and 'Harry Potter.'", "I don't have a favorite book, but many people love 'The Lord of the Rings' and 'Pride and Prejudice.'"],
+            "how old are you": ["I'm just a program, so I don't have an age.", "I don't age, but I'm here to help you."],
+            "tell me a fun fact": ["Sure, here's a fun fact: The Eiffel Tower can be 15 cm taller during the summer due to thermal expansion.", "Here's a fun fact: The shortest war in history was between Britain and Zanzibar on August 27, 1896, and it lasted only 38 minutes."],
+            "tell me a quote": ["Certainly! Here's a quote: 'The only way to do great work is to love what you do.' - Steve Jobs", "Here's a quote: 'In the middle of every difficulty lies opportunity.' - Albert Einstein"],
+            "what's your purpose": ["I'm here to assist and provide information to the best of my abilities.", "My purpose is to answer your questions and engage in conversations with you."],
+            "tell me a science fact": ["Sure, here's a science fact: Honey never spoils because it has low water content and high acidity, which create an inhospitable environment for bacteria and microorganisms.", "Here's a science fact: Octopuses have three hearts. Two pump blood to the gills, and one pumps it to the rest of the body."],
+            "do you believe in aliens": ["I don't have beliefs, but the existence of extraterrestrial life is a fascinating topic that scientists continue to explore.", "I don't have personal beliefs, but the possibility of alien life is a subject of scientific curiosity and research."],
+            "tell me a historical fact": ["Certainly! Here's a historical fact: The Great Fire of London in 1666 destroyed much of the city, leading to significant urban planning changes.", "Here's a historical fact: The ancient city of Rome was founded in 753 BC, and it went on to become one of the most powerful civilizations in history."],
+        };
+
+        // Function to add user and chatbot messages to the chat window
+        function addMessage(sender, message, isChatbot = false) {
+            const chatOutput = document.getElementById("chat-output");
+            const messageDiv = document.createElement("div");
+            messageDiv.textContent = `${sender}: ${message}`;
+            messageDiv.classList.add("message");
+            if (isChatbot) {
+                messageDiv.classList.add("chatbot");
+            }
+            chatOutput.appendChild(messageDiv);
+        }
+
+        // Function to handle user input and generate chatbot responses
+        function handleUserInput() {
+            const userInput = document.getElementById("user-input").value;
+            addMessage("You", userInput);
+
+            // Implement chatbot logic to generate responses based on userInput
+            const chatbotResponse = responses[userInput.toLowerCase()];
+            if (chatbotResponse) {
+                addMessage("Chatbot", chatbotResponse, true);
+            } else {
+                addMessage("Chatbot", "I'm not sure how to respond to that. Try asking me something else.", true);
+            }
+
+            // Clear the input field
+            document.getElementById("user-input").value = "";
+        }
+
+        // Attach the handleUserInput function to the "Send" button
+        document.getElementById("send-button").addEventListener("click", handleUserInput);
+
+        // Handle user input when Enter key is pressed
+        document.getElementById("user-input").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                handleUserInput();
+            }
+        });
     </script>
 </body>
 </html>
