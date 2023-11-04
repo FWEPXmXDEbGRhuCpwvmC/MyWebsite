@@ -3,7 +3,58 @@
 <head>
     <title>Chatbot</title>
     <style>
-        /* Add CSS styles for the chat window here */
+        /* Chat window styles */
+        #chat-container {
+            width: 300px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        /* Chat messages styles */
+        #chat-output {
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        /* User input styles */
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-top: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 16px;
+        }
+
+        /* Send button styles */
+        #send-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0 0 8px 8px;
+            cursor: pointer;
+        }
+
+        /* Chat message styles */
+        .message {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 5px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        /* Chatbot message styles */
+        .chatbot {
+            background-color: #009688;
+        }
     </style>
 </head>
 <body>
@@ -14,31 +65,7 @@
     </div>
 
     <script>
-        // JavaScript code for the chatbot
-
-        // Function to add user and chatbot messages to the chat window
-        function addMessage(sender, message) {
-            const chatOutput = document.getElementById("chat-output");
-            const messageDiv = document.createElement("div");
-            messageDiv.textContent = sender + ": " + message;
-            chatOutput.appendChild(messageDiv);
-        }
-
-        // Function to handle user input and generate chatbot responses
-        function handleUserInput() {
-            const userInput = document.getElementById("user-input").value;
-            addMessage("You", userInput); // Display user message in the chat window
-
-            // Implement chatbot logic to generate responses based on userInput
-            const chatbotResponse = "This is a sample chatbot response.";
-            addMessage("Chatbot", chatbotResponse); // Display chatbot response in the chat window
-
-            // Clear the input field
-            document.getElementById("user-input").value = "";
-        }
-
-        // Attach the handleUserInput function to the "Send" button
-        document.getElementById("send-button").addEventListener("click", handleUserInput);
+        // JavaScript code for the chatbot (as previously provided)
     </script>
 </body>
 </html>
